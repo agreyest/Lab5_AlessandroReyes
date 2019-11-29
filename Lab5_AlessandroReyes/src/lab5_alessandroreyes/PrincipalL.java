@@ -679,6 +679,11 @@ public class PrincipalL extends javax.swing.JFrame {
         );
 
         jButton1.setText("Regresar");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
 
         jl_listarmaestros.setModel(new DefaultListModel());
         jScrollPane5.setViewportView(jl_listarmaestros);
@@ -693,16 +698,16 @@ public class PrincipalL extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jButton1))
                     .addGroup(jd_listar_maestroLayout.createSequentialGroup()
-                        .addGap(234, 234, 234)
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(199, 199, 199)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(93, Short.MAX_VALUE))
         );
         jd_listar_maestroLayout.setVerticalGroup(
             jd_listar_maestroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_listar_maestroLayout.createSequentialGroup()
                 .addGap(32, 32, 32)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addContainerGap())
         );
@@ -1238,6 +1243,15 @@ public class PrincipalL extends javax.swing.JFrame {
         jd_listar_maestro.setLocationRelativeTo(this);
         jd_listar_maestro.setVisible(true);
     }//GEN-LAST:event_jmi_listar_maestrosActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        DefaultListModel modeloLISTA = (DefaultListModel) jl_listarmaestros.getModel();
+        modeloLISTA.removeAllElements();
+        jl_listarmaestros.setModel(modeloLISTA);
+        jd_listar_maestro.setVisible(false);
+        jd_listar_maestro.setModal(false);
+        this.setVisible(true);
+    }//GEN-LAST:event_jButton1MouseClicked
 
     /**
      * @param args the command line arguments
