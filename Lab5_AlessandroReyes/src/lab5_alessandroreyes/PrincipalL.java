@@ -160,7 +160,7 @@ public class PrincipalL extends javax.swing.JFrame {
         btn_crearC_regresar = new javax.swing.JButton();
         btn_crearC = new javax.swing.JButton();
         jd_listar_maestro = new javax.swing.JDialog();
-        jButton1 = new javax.swing.JButton();
+        btn_listarM_r = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
         jl_listarmaestros = new javax.swing.JList<>();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -678,10 +678,10 @@ public class PrincipalL extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jButton1.setText("Regresar");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_listarM_r.setText("Regresar");
+        btn_listarM_r.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                btn_listarM_rMouseClicked(evt);
             }
         });
 
@@ -696,7 +696,7 @@ public class PrincipalL extends javax.swing.JFrame {
                 .addGroup(jd_listar_maestroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jd_listar_maestroLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton1))
+                        .addComponent(btn_listarM_r))
                     .addGroup(jd_listar_maestroLayout.createSequentialGroup()
                         .addGap(199, 199, 199)
                         .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -708,7 +708,7 @@ public class PrincipalL extends javax.swing.JFrame {
                 .addGap(32, 32, 32)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(btn_listarM_r)
                 .addContainerGap())
         );
 
@@ -1244,14 +1244,14 @@ public class PrincipalL extends javax.swing.JFrame {
         jd_listar_maestro.setVisible(true);
     }//GEN-LAST:event_jmi_listar_maestrosActionPerformed
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void btn_listarM_rMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_listarM_rMouseClicked
         DefaultListModel modeloLISTA = (DefaultListModel) jl_listarmaestros.getModel();
         modeloLISTA.removeAllElements();
         jl_listarmaestros.setModel(modeloLISTA);
         jd_listar_maestro.setVisible(false);
         jd_listar_maestro.setModal(false);
         this.setVisible(true);
-    }//GEN-LAST:event_jButton1MouseClicked
+    }//GEN-LAST:event_btn_listarM_rMouseClicked
 
     /**
      * @param args the command line arguments
@@ -1301,11 +1301,11 @@ public class PrincipalL extends javax.swing.JFrame {
     private javax.swing.JButton btn_crearM_r;
     private javax.swing.JButton btn_crear_estudiante;
     private javax.swing.JButton btn_listarE_regresar;
+    private javax.swing.JButton btn_listarM_r;
     private javax.swing.JButton btn_modE_regresar;
     private javax.swing.JButton btn_modificarE;
     private javax.swing.JComboBox<String> cb_estu_carrera;
     private javax.swing.JComboBox<String> cb_modE_carrera;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
