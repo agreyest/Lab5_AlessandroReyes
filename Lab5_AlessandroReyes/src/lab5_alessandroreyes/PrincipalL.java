@@ -159,6 +159,10 @@ public class PrincipalL extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         btn_crearC_regresar = new javax.swing.JButton();
         btn_crearC = new javax.swing.JButton();
+        jd_listar_maestro = new javax.swing.JDialog();
+        jButton1 = new javax.swing.JButton();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jl_listarmaestros = new javax.swing.JList<>();
         jMenuBar1 = new javax.swing.JMenuBar();
         Acciones = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
@@ -674,6 +678,35 @@ public class PrincipalL extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jButton1.setText("Regresar");
+
+        jl_listarmaestros.setModel(new DefaultListModel());
+        jScrollPane5.setViewportView(jl_listarmaestros);
+
+        javax.swing.GroupLayout jd_listar_maestroLayout = new javax.swing.GroupLayout(jd_listar_maestro.getContentPane());
+        jd_listar_maestro.getContentPane().setLayout(jd_listar_maestroLayout);
+        jd_listar_maestroLayout.setHorizontalGroup(
+            jd_listar_maestroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_listar_maestroLayout.createSequentialGroup()
+                .addGroup(jd_listar_maestroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_listar_maestroLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton1))
+                    .addGroup(jd_listar_maestroLayout.createSequentialGroup()
+                        .addGap(234, 234, 234)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(93, Short.MAX_VALUE))
+        );
+        jd_listar_maestroLayout.setVerticalGroup(
+            jd_listar_maestroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_listar_maestroLayout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addContainerGap())
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         Acciones.setText("Acciones");
@@ -709,6 +742,11 @@ public class PrincipalL extends javax.swing.JFrame {
         jMenu1.add(jmi_crear_maestros);
 
         jmi_listar_maestros.setText("Listar");
+        jmi_listar_maestros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_listar_maestrosActionPerformed(evt);
+            }
+        });
         jMenu1.add(jmi_listar_maestros);
 
         Acciones.add(jMenu1);
@@ -1186,6 +1224,21 @@ public class PrincipalL extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btn_crearMMouseClicked
 
+    private void jmi_listar_maestrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_listar_maestrosActionPerformed
+        DefaultListModel modeloLISTA = (DefaultListModel) jl_listarmaestros.getModel();
+        
+        for (int i = 0; i < maestros.size(); i++) {
+            modeloLISTA.addElement(new Maestro(maestros.get(i).getNombre(), maestros.get(i).getApellido(),
+             maestros.get(i).getSalario(), maestros.get(i).getEdad()));
+        }
+        jl_listarmaestros.setModel(modeloLISTA);
+        this.setVisible(false);
+        jd_listar_maestro.setModal(true);
+        jd_listar_maestro.pack();
+        jd_listar_maestro.setLocationRelativeTo(this);
+        jd_listar_maestro.setVisible(true);
+    }//GEN-LAST:event_jmi_listar_maestrosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1238,6 +1291,7 @@ public class PrincipalL extends javax.swing.JFrame {
     private javax.swing.JButton btn_modificarE;
     private javax.swing.JComboBox<String> cb_estu_carrera;
     private javax.swing.JComboBox<String> cb_modE_carrera;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1269,16 +1323,19 @@ public class PrincipalL extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JDialog jd_arbol;
     private javax.swing.JDialog jd_crear_carrera;
     private javax.swing.JDialog jd_crear_clase;
     private javax.swing.JDialog jd_crear_estudiante;
     private javax.swing.JDialog jd_crear_maestro;
     private javax.swing.JDialog jd_listar_estudiantes;
+    private javax.swing.JDialog jd_listar_maestro;
     private javax.swing.JDialog jd_mod_estu;
     private javax.swing.JList<String> jl_crearM_clases;
     private javax.swing.JList<String> jl_crearM_tiene;
     private javax.swing.JList<String> jl_listar_estudiantes;
+    private javax.swing.JList<String> jl_listarmaestros;
     private javax.swing.JMenuItem jmi_arbol;
     private javax.swing.JMenuItem jmi_crear_carreras;
     private javax.swing.JMenuItem jmi_crear_clases;
