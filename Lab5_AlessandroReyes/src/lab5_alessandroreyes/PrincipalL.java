@@ -98,7 +98,27 @@ public class PrincipalL extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jt_estudiantes = new javax.swing.JTree();
         pop_op_estu = new javax.swing.JPopupMenu();
-        Agregar_arbol = new javax.swing.JMenuItem();
+        pjmi_Agregar_arbol = new javax.swing.JMenuItem();
+        pop_op_arbol = new javax.swing.JPopupMenu();
+        pjmi_modE = new javax.swing.JMenuItem();
+        pjmi_eliE = new javax.swing.JMenuItem();
+        jd_mod_estu = new javax.swing.JDialog();
+        btn_modE_regresar = new javax.swing.JButton();
+        btn_modificarE = new javax.swing.JButton();
+        tf_modE_nom = new javax.swing.JTextField();
+        tf_modE_apellido = new javax.swing.JTextField();
+        tf_modE_cuenta = new javax.swing.JTextField();
+        js_mod_es = new javax.swing.JSpinner();
+        rb_modE_m = new javax.swing.JRadioButton();
+        rb_modE_f = new javax.swing.JRadioButton();
+        cb_mod_estu = new javax.swing.JComboBox<>();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        bg_modE = new javax.swing.ButtonGroup();
         jMenuBar1 = new javax.swing.JMenuBar();
         Acciones = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
@@ -270,6 +290,11 @@ public class PrincipalL extends javax.swing.JFrame {
 
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Carreras");
         jt_estudiantes.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jt_estudiantes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jt_estudiantesMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jt_estudiantes);
 
         javax.swing.GroupLayout jd_arbolLayout = new javax.swing.GroupLayout(jd_arbol.getContentPane());
@@ -296,13 +321,118 @@ public class PrincipalL extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        Agregar_arbol.setText("Agregar al Arbol");
-        Agregar_arbol.addActionListener(new java.awt.event.ActionListener() {
+        pjmi_Agregar_arbol.setText("Agregar al Arbol");
+        pjmi_Agregar_arbol.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Agregar_arbolActionPerformed(evt);
+                pjmi_Agregar_arbolActionPerformed(evt);
             }
         });
-        pop_op_estu.add(Agregar_arbol);
+        pop_op_estu.add(pjmi_Agregar_arbol);
+
+        pjmi_modE.setText("Modificar");
+        pjmi_modE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pjmi_modEActionPerformed(evt);
+            }
+        });
+        pop_op_arbol.add(pjmi_modE);
+
+        pjmi_eliE.setText("Eliminar");
+        pjmi_eliE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pjmi_eliEActionPerformed(evt);
+            }
+        });
+        pop_op_arbol.add(pjmi_eliE);
+
+        btn_modE_regresar.setText("Regresar");
+
+        btn_modificarE.setText("Modificar");
+
+        bg_modE.add(rb_modE_m);
+        rb_modE_m.setText("M");
+
+        bg_modE.add(rb_modE_f);
+        rb_modE_f.setText("F");
+
+        jLabel7.setText("Nombre");
+
+        jLabel8.setText("Apellido");
+
+        jLabel9.setText("Numero de cuenta");
+
+        jLabel10.setText("Edad");
+
+        jLabel11.setText("Genero");
+
+        jLabel12.setText("Carrera");
+
+        javax.swing.GroupLayout jd_mod_estuLayout = new javax.swing.GroupLayout(jd_mod_estu.getContentPane());
+        jd_mod_estu.getContentPane().setLayout(jd_mod_estuLayout);
+        jd_mod_estuLayout.setHorizontalGroup(
+            jd_mod_estuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_mod_estuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btn_modE_regresar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_modificarE)
+                .addContainerGap())
+            .addGroup(jd_mod_estuLayout.createSequentialGroup()
+                .addGap(185, 185, 185)
+                .addGroup(jd_mod_estuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel7)
+                    .addGroup(jd_mod_estuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jd_mod_estuLayout.createSequentialGroup()
+                            .addComponent(rb_modE_m)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(rb_modE_f))
+                        .addComponent(tf_modE_nom, javax.swing.GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE)
+                        .addComponent(tf_modE_apellido)
+                        .addComponent(tf_modE_cuenta)
+                        .addComponent(cb_mod_estu, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(js_mod_es, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(203, Short.MAX_VALUE))
+        );
+        jd_mod_estuLayout.setVerticalGroup(
+            jd_mod_estuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_mod_estuLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tf_modE_nom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tf_modE_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44)
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tf_modE_cuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(js_mod_es, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47)
+                .addComponent(jLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jd_mod_estuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rb_modE_m)
+                    .addComponent(rb_modE_f))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addComponent(jLabel12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cb_mod_estu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addGroup(jd_mod_estuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_modE_regresar)
+                    .addComponent(btn_modificarE))
+                .addContainerGap())
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -479,6 +609,10 @@ public class PrincipalL extends javax.swing.JFrame {
     }//GEN-LAST:event_jmi_listar_estudiantesActionPerformed
 
     private void btn_listarE_regresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_listarE_regresarMouseClicked
+        DefaultListModel modeloLISTA = (DefaultListModel) jl_listar_estudiantes.getModel();
+        modeloLISTA.removeAllElements();
+        jl_listar_estudiantes.setModel(modeloLISTA);
+        
         jd_listar_estudiantes.setModal(false);
         jd_listar_estudiantes.setVisible(false);
         
@@ -494,7 +628,7 @@ public class PrincipalL extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jl_listar_estudiantesMouseClicked
 
-    private void Agregar_arbolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Agregar_arbolActionPerformed
+    private void pjmi_Agregar_arbolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pjmi_Agregar_arbolActionPerformed
         if (jl_listar_estudiantes.getSelectedIndex() >= 0) {
             DefaultTreeModel modeloARBOL = (DefaultTreeModel) jt_estudiantes.getModel();
             DefaultMutableTreeNode raiz
@@ -521,7 +655,7 @@ public class PrincipalL extends javax.swing.JFrame {
             int centinela = -1;
             boolean a = false;
             for (int i = 0; i < raiz.getChildCount(); i++) {
-                if (raiz.getChildAt(i).toString().equals(ca)) {
+                if (raiz.getChildAt(i).toString().equals(ca.getNombre())) {
                     for (int j = 0; j < raiz.getChildAt(i).getChildCount(); j++) {
                         if (raiz.getChildAt(i).getChildAt(j).toString().equals(nombre)) {
                             a = true;
@@ -544,7 +678,7 @@ public class PrincipalL extends javax.swing.JFrame {
             }//fin for1
             if (centinela == -1) {
                 DefaultMutableTreeNode n
-                        = new DefaultMutableTreeNode(ca);
+                        = new DefaultMutableTreeNode(ca.getNombre());
                 DefaultMutableTreeNode p
                         = new DefaultMutableTreeNode(
                                 new Estudiante(nombre, apellido, cuenta, edad, gene, ca));
@@ -555,7 +689,7 @@ public class PrincipalL extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(this, "No hay persona seleccionada");
         }
-    }//GEN-LAST:event_Agregar_arbolActionPerformed
+    }//GEN-LAST:event_pjmi_Agregar_arbolActionPerformed
 
     private void jmi_arbolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_arbolActionPerformed
         this.setVisible(false);
@@ -572,6 +706,61 @@ public class PrincipalL extends javax.swing.JFrame {
         this.setVisible(true);
         this.setLocationRelativeTo(this);
     }//GEN-LAST:event_btn_arbol_regresarMouseClicked
+
+    private void jt_estudiantesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_estudiantesMouseClicked
+        if(evt.isMetaDown()){
+            int row = jt_estudiantes.getClosestRowForLocation(evt.getX(), evt.getY());
+            jt_estudiantes.setSelectionRow(row);
+            Object v1=
+                    jt_estudiantes.getSelectionPath().getLastPathComponent();
+            nodo_seleccionado = (DefaultMutableTreeNode) v1;
+            if(nodo_seleccionado.getUserObject() instanceof Estudiante){
+                estudiante_seleccionado
+                        = (Estudiante) nodo_seleccionado.getUserObject();
+                pop_op_arbol.show(evt.getComponent(), evt.getX(), evt.getY());
+                
+            }
+        }
+    }//GEN-LAST:event_jt_estudiantesMouseClicked
+
+    private void pjmi_eliEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pjmi_eliEActionPerformed
+        int response = JOptionPane.showConfirmDialog(this, "Seguro de Eliminarlo?", "Confirm", 
+                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if(response == JOptionPane.OK_OPTION){
+            DefaultTreeModel m = (DefaultTreeModel) jt_estudiantes.getModel();
+            m.removeNodeFromParent(nodo_seleccionado);
+            m.reload();
+            for (int i = 0; i < estudiantes.size(); i++) {
+                if(estudiante_seleccionado.getNombre().equals(estudiantes.get(i).getNombre())){
+                    estudiantes.remove(i);
+                    break;
+                }
+            }
+        }
+    }//GEN-LAST:event_pjmi_eliEActionPerformed
+
+    private void pjmi_modEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pjmi_modEActionPerformed
+        tf_modE_nom.setText(estudiante_seleccionado.getNombre());
+        tf_modE_cuenta.setText(Integer.toString(estudiante_seleccionado.getCuenta()));
+        tf_modE_apellido.setText(estudiante_seleccionado.getApellido());
+        SpinnerNumberModel YY = new SpinnerNumberModel();
+        YY.setMinimum(16);
+        YY.setValue(estudiante_seleccionado.getEdad());
+        js_mod_es.setModel(YY);
+        if(estudiante_seleccionado.isGenero() == true){
+            rb_modE_m.setSelected(true);
+        }else{
+            rb_modE_f.setSelected(true);
+        }
+        DefaultComboBoxModel modelo = new DefaultComboBoxModel(carreras.toArray());
+        cb_mod_estu.setModel(modelo);
+        jd_arbol.setModal(false);
+        jd_arbol.setVisible(false);
+        jd_mod_estu.setModal(true);
+        jd_mod_estu.pack();
+        jd_mod_estu.setLocationRelativeTo(this);
+        jd_mod_estu.setVisible(true);
+    }//GEN-LAST:event_pjmi_modEActionPerformed
 
     /**
      * @param args the command line arguments
@@ -610,19 +799,28 @@ public class PrincipalL extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu Acciones;
-    private javax.swing.JMenuItem Agregar_arbol;
     private javax.swing.ButtonGroup bg_genero;
+    private javax.swing.ButtonGroup bg_modE;
     private javax.swing.JButton btn_arbol_regresar;
     private javax.swing.JButton btn_crearE_regresar;
     private javax.swing.JButton btn_crear_estudiante;
     private javax.swing.JButton btn_listarE_regresar;
+    private javax.swing.JButton btn_modE_regresar;
+    private javax.swing.JButton btn_modificarE;
     private javax.swing.JComboBox<String> cb_estu_carrera;
+    private javax.swing.JComboBox<String> cb_mod_estu;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -633,6 +831,7 @@ public class PrincipalL extends javax.swing.JFrame {
     private javax.swing.JDialog jd_arbol;
     private javax.swing.JDialog jd_crear_estudiante;
     private javax.swing.JDialog jd_listar_estudiantes;
+    private javax.swing.JDialog jd_mod_estu;
     private javax.swing.JList<String> jl_listar_estudiantes;
     private javax.swing.JMenuItem jmi_arbol;
     private javax.swing.JMenuItem jmi_crear_carreras;
@@ -644,16 +843,28 @@ public class PrincipalL extends javax.swing.JFrame {
     private javax.swing.JMenuItem jmi_listar_estudiantes;
     private javax.swing.JMenuItem jmi_listar_maestros;
     private javax.swing.JSpinner js_estu_edad;
+    private javax.swing.JSpinner js_mod_es;
     private javax.swing.JTree jt_estudiantes;
+    private javax.swing.JMenuItem pjmi_Agregar_arbol;
+    private javax.swing.JMenuItem pjmi_eliE;
+    private javax.swing.JMenuItem pjmi_modE;
+    private javax.swing.JPopupMenu pop_op_arbol;
     private javax.swing.JPopupMenu pop_op_estu;
     private javax.swing.JRadioButton rb_f;
     private javax.swing.JRadioButton rb_m;
+    private javax.swing.JRadioButton rb_modE_f;
+    private javax.swing.JRadioButton rb_modE_m;
     private javax.swing.JTextField tf_estudiante_apellido;
     private javax.swing.JTextField tf_estudiante_cuenta;
     private javax.swing.JTextField tf_estudiante_nombre;
+    private javax.swing.JTextField tf_modE_apellido;
+    private javax.swing.JTextField tf_modE_cuenta;
+    private javax.swing.JTextField tf_modE_nom;
     // End of variables declaration//GEN-END:variables
     private ArrayList <Estudiante> estudiantes = new ArrayList();
     private ArrayList <Carrera> carreras = new ArrayList();
     private ArrayList <Maestro> maestros = new ArrayList();
     private ArrayList <Clase> clases = new ArrayList();
+    DefaultMutableTreeNode nodo_seleccionado;
+    Estudiante estudiante_seleccionado;
 }
