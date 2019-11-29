@@ -58,7 +58,9 @@ public class Maestro {
     public void setClases(ArrayList<Clase> clases) {
         this.clases = clases;
     }
-
+    public void setClase(Clase clase) {
+        this.clases.add(clase);
+    }
     @Override
     public String toString() {
         return nombre;
